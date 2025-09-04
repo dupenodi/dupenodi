@@ -3,7 +3,6 @@
 <h2 align="center">👋 Hey, Welcome!</h2>
 <p align="center">Glad to see you on my GitHub!</p>
 
----
 
 <h1 align="center">
   Sarath Donepudi 
@@ -26,9 +25,8 @@
   </a>
 </p>
 
----
 
-## 👨‍💻 About Me
+## About Me
 
 I’m Sarath, a Founding Full Stack Developer at Niti AI.  
 I architect and build **AI-first infrastructure** for retention marketing, audience research, and campaign performance—powering D2C brands and mid-market companies.
@@ -44,7 +42,7 @@ Outside of work: I write, travel, explore creative technology, dabble in design,
 
 ---
 
-## ⚙️ Tech I Work With
+## Tech I Work With
 
 ![Next.js](https://img.shields.io/badge/Next.js-000?style=flat-square&logo=nextdotjs)
 ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react)
@@ -59,36 +57,24 @@ Outside of work: I write, travel, explore creative technology, dabble in design,
 ![Vercel](https://img.shields.io/badge/Vercel-000?style=flat-square&logo=vercel)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma)
 
----
 
-## 🏗️ Open Source & Featured Projects
 
-| 📦 Projects | ⭐ Stars | 🍴 Forks | 🛠 Issues | 🔀 PRs |
-| ----------- | ------- | --------| --------- | ------ |
-| [web-ambri](https://github.com/nitiai/web-ambri) | ![Stars](https://img.shields.io/github/stars/nitiai/web-ambri?style=social) | ![Forks](https://img.shields.io/github/forks/nitiai/web-ambri?style=social) | ![Issues](https://img.shields.io/github/issues/nitiai/web-ambri?style=social) | ![PRs](https://img.shields.io/github/issues-pr/nitiai/web-ambri?style=social) |
-| [cosmos](https://github.com/nitiai/cosmos) | ![Stars](https://img.shields.io/github/stars/nitiai/cosmos?style=social) | ![Forks](https://img.shields.io/github/forks/nitiai/cosmos?style=social) | ![Issues](https://img.shields.io/github/issues/nitiai/cosmos?style=social) | ![PRs](https://img.shields.io/github/issues-pr/nitiai/cosmos?style=social) |
-| [weber](https://github.com/nitiai/weber) | ![Stars](https://img.shields.io/github/stars/nitiai/weber?style=social) | ![Forks](https://img.shields.io/github/forks/nitiai/weber?style=social) | ![Issues](https://img.shields.io/github/issues/nitiai/weber?style=social) | ![PRs](https://img.shields.io/github/issues-pr/nitiai/weber?style=social) |
-| [admin-service](https://github.com/nitiai/admin-service) | ![Stars](https://img.shields.io/github/stars/nitiai/admin-service?style=social) | ![Forks](https://img.shields.io/github/forks/nitiai/admin-service?style=social) | ![Issues](https://img.shields.io/github/issues/nitiai/admin-service?style=social) | ![PRs](https://img.shields.io/github/issues-pr/nitiai/admin-service?style=social) |
-| [loopx-docs](https://github.com/nitiai/loopx-docs) | ![Stars](https://img.shields.io/github/stars/nitiai/loopx-docs?style=social) | ![Forks](https://img.shields.io/github/forks/nitiai/loopx-docs?style=social) | ![Issues](https://img.shields.io/github/issues/nitiai/loopx-docs?style=social) | ![PRs](https://img.shields.io/github/issues-pr/nitiai/loopx-docs?style=social) |
-
----
-
-## ✍️ Latest Writings
+## Latest Writings
 
 - [Reminiscence Blog](https://reminiscence.bearblog.dev) – Thoughts on tech, creativity, and more.
 
 ---
 
-## 🌱 Currently Exploring
+## Currently Exploring
 
-- ⚡ LLM agent architectures for campaign automation  
-- 📚 Advanced RAG (Retrieval-Augmented Generation) patterns  
-- 📊 Scaling infra for real-time analytics  
-- 🎨 Generative art & creative coding
+- LLM agent architectures for campaign automation  
+- Advanced RAG (Retrieval-Augmented Generation) patterns  
+- Scaling infra for real-time analytics  
+- Generative art & creative coding
 
 ---
 
-## 🌍 Find Me Online
+## Find Me Online
 
 - [GitHub](https://github.com/dupenodi)  
 - [LinkedIn](https://www.linkedin.com/in/sarath-donepudi/)  
