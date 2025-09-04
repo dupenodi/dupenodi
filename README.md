@@ -1,18 +1,19 @@
 <!-- Profile README for Sarath Donepudi (@dupenodi) -->
 
 <h2 align="center">👋 Hey, Welcome!</h2>
-<p align="center">Glad to see you on my GitHub!</p>
+<p align="center">Nice to have you here on my GitHub.</p>
 
+---
 
 <h1 align="center">
-  Sarath Donepudi 
+  Sarath Donepudi  
   <img src="https://img.shields.io/badge/Verified-blue?style=flat-square" alt="verification badge" />
   <br/>
   <span style="font-size:1.1em;">He/Him</span>
 </h1>
 
 <p align="center">
-  <strong>🚀 Founding Engineer @ <a href="https://niti.ai">Niti AI</a></strong> <br>
+  <strong>🚀 Founding Engineer @ <a href="https://niti.ai">Niti AI</a></strong> <br/>
   Full Stack · AI Infra · Platform Systems · 0→1 Builder
 </p>
 
@@ -25,24 +26,25 @@
   </a>
 </p>
 
+---
 
-## About Me
+## 👨‍💻 About Me
 
-I’m Sarath, a Founding Full Stack Developer at Niti AI.  
-I architect and build **AI-first infrastructure** for retention marketing, audience research, and campaign performance—powering D2C brands and mid-market companies.
+I’m Sarath. I help build Niti AI from the ground up as one of the first engineers.  
+Most of my work revolves around designing **AI-first infrastructure** that makes retention marketing, audience insights, and campaign performance less of a headache and more of a system that just works.
 
-💡 Things I enjoy doing:
-- Designing expressive UIs with **Next.js/React**  
-- Building resilient microservices in **Python / Go**  
-- Working with **Supabase/PostgreSQL** for data infra  
-- Integrating **LLMs, LangChain, vector DBs** into products  
-- Shipping tools, systems, and workflows from **0 → 1**
+On any given day, I’m probably:
+- Sketching UIs in **React/Next.js** that feel snappy and expressive  
+- Writing services in **Python** or **Go** that don’t fall apart under load  
+- Figuring out schemas and queries in **Postgres/Supabase**  
+- Plugging in **LLMs, LangChain, and vector DBs** into workflows  
+- Shipping features end to end, from **idea → code → production**
 
-Outside of work: I write, travel, explore creative technology, dabble in design, and document thoughts → [Reminiscence Blog](https://reminiscence.bearblog.dev).
+When I step away from work, I like to write, travel, experiment with creative tech, and occasionally get lost in design projects. I also jot down thoughts here: [Reminiscence Blog](https://reminiscence.bearblog.dev).
 
 ---
 
-## Tech I Work With
+## 🛠️ Tech I Use
 
 ![Next.js](https://img.shields.io/badge/Next.js-000?style=flat-square&logo=nextdotjs)
 ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react)
@@ -57,24 +59,24 @@ Outside of work: I write, travel, explore creative technology, dabble in design,
 ![Vercel](https://img.shields.io/badge/Vercel-000?style=flat-square&logo=vercel)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma)
 
+---
 
+## ✍️ Writing
 
-## Latest Writings
-
-- [Reminiscence Blog](https://reminiscence.bearblog.dev) – Thoughts on tech, creativity, and more.
+- [Reminiscence Blog](https://reminiscence.bearblog.dev) – Thoughts on tech, creativity, and everyday reflections.
 
 ---
 
-## Currently Exploring
+## 🌱 Lately, I’m Exploring
 
-- LLM agent architectures for campaign automation  
-- Advanced RAG (Retrieval-Augmented Generation) patterns  
-- Scaling infra for real-time analytics  
-- Generative art & creative coding
+- Building agent architectures for growth and campaign automation  
+- Getting deeper into **RAG** and advanced search patterns  
+- Scaling real-time analytics systems  
+- Creative coding, generative visuals, and playful tech experiments  
 
 ---
 
-## Find Me Online
+## 🌍 Elsewhere
 
 - [GitHub](https://github.com/dupenodi)  
 - [LinkedIn](https://www.linkedin.com/in/sarath-donepudi/)  
@@ -88,4 +90,4 @@ Outside of work: I write, travel, explore creative technology, dabble in design,
 
 ---
 
-<h3 align="center">✨ Thanks for stopping by! ✨</h3>
+<h3 align="center">✨ Thanks for dropping by ✨</h3>
