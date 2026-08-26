@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Mono:wght@400;500&display=swap');
+
+  :root {
+    --brand: #1a3c5e;
+    --accent: #2e6da4;
+    --green: #1a6e45;
+    --red: #b91c1c;
+    --amber: #92400e;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --bg-light: #f8fafc;
+    --bg-code: #1e293b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.65;
+    color: #1e293b;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Cover page */
+  .cover {
+    background: linear-gradient(135deg, #0f2340 0%, #1a3c5e 50%, #0f4c75 100%);
+    color: #fff;
+    padding: 60px 50px 50px;
+    min-height: 297mm;
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cover .tag {
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 28px;
+  }
+
+  .cover h1 {
+    font-size: 32pt;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 18px;
+    border: none;
+    padding: 0;
+  }
+
+  .cover .subtitle {
+    font-size: 13pt;
+    color: #bfdbfe;
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+
+  .cover .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .cover .meta-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+
+  .cover .meta-label {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 4px;
+  }
+
+  .cover .meta-value {
+    font-size: 10pt;
+    color: #e0f2fe;
+    font-weight: 500;
+  }
+
+  .cover .score-box {
+    margin-top: 40px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .cover .big-score {
+    font-size: 52pt;
+    font-weight: 700;
+    color: #fbbf24;
+    line-height: 1;
+  }
+
+  .cover .score-label {
+    font-size: 10pt;
+    color: #bfdbfe;
+    line-height: 1.5;
+  }
+
+  .cover .score-label strong {
+    display: block;
+    font-size: 13pt;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  /* Main content wrapper */
+  .content {
+    padding: 40px 50px;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Typography */
+  h1 {
+    font-size: 20pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin: 40px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--brand);
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: var(--brand);
+    margin: 32px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 11.5pt;
+    font-weight: 600;
+    color: #0f4c75;
+    margin: 22px 0 8px;
+    page-break-after: avoid;
+  }
+
+  h4 {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #334155;
+    margin: 18px 0 6px;
+  }
+
+  p { margin: 0 0 12px; }
+
+  a { color: var(--accent); text-decoration: none; }
+
+  strong { font-weight: 600; }
+
+  em { font-style: italic; color: #475569; }
+
+  hr {
+    border: none;
+    border-top: 2px solid var(--border);
+    margin: 36px 0;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 9.5pt;
+    page-break-inside: avoid;
+  }
+
+  thead tr {
+    background: var(--brand);
+    color: #fff;
+  }
+
+  thead th {
+    padding: 9px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 8.5pt;
+    letter-spacing: 0.05em;
+  }
+
+  tbody tr:nth-child(even) { background: var(--bg-light); }
+  tbody tr:hover { background: #e0f2fe; }
+
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  /* Code blocks */
+  pre {
+    background: var(--bg-code);
+    color: #e2e8f0;
+    border-radius: 8px;
+    padding: 16px 18px;
+    font-family: 'Fira Mono', 'Courier New', monospace;
+    font-size: 8.5pt;
+    line-height: 1.6;
+    overflow-x: auto;
+    margin: 14px 0 20px;
+    page-break-inside: avoid;
+  }
+
+  code {
+    font-family: 'Fira Mono', 'Courier New', monospace;
+    font-size: 8.5pt;
+    background: #f1f5f9;
+    color: #b91c1c;
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+
+  pre code {
+    background: none;
+    color: #e2e8f0;
+    padding: 0;
+  }
+
+  /* Lists */
+  ul, ol {
+    margin: 8px 0 14px 22px;
+    padding: 0;
+  }
+
+  li { margin-bottom: 5px; }
+
+  /* Callout boxes */
+  blockquote {
+    border-left: 4px solid var(--accent);
+    background: #eff6ff;
+    margin: 16px 0;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    font-size: 10pt;
+    color: #1e3a5f;
+  }
+
+  /* Status indicators in text */
+  .status-good { color: var(--green); font-weight: 700; }
+  .status-warn { color: var(--amber); font-weight: 700; }
+  .status-bad  { color: var(--red);   font-weight: 700; }
+
+  /* Section number badge */
+  .section-badge {
+    display: inline-block;
+    background: var(--brand);
+    color: #fff;
+    font-size: 8pt;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* Page breaks */
+  .page-break { page-break-before: always; }
+
+  @page {
+    size: A4;
+    margin: 18mm 18mm 20mm;
+    @bottom-center {
+      content: "vaadi.life — SEO / GEO / AEO Audit · July 2026 · Page " counter(page);
+      font-size: 8pt;
+      color: #94a3b8;
+      font-family: 'Inter', sans-serif;
+    }
+  }
+
+  @media print {
+    .cover { min-height: 100vh; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="tag">Confidential Audit Report · July 2026</div>
+  <h1>vaadi.life<br>SEO · GEO · AEO<br>Full Audit Report</h1>
+  <div class="subtitle">
+    A comprehensive search visibility assessment covering<br>
+    Search Engine Optimization, Generative Engine Optimization,<br>
+    and Answer Engine Optimization.
+  </div>
+
+  <div class="meta-grid">
+    <div class="meta-item">
+      <div class="meta-label">Property</div>
+      <div class="meta-value">Vaadi — Himalayan Homestay</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Location</div>
+      <div class="meta-value">Near Auli, Uttarakhand, India</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Website</div>
+      <div class="meta-value">https://vaadi.life</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Audit Date</div>
+      <div class="meta-value">July 2026</div>
+    </div>
+  </div>
+
+  <div class="score-box">
+    <div class="big-score">4.4</div>
+    <div class="score-label">
+      <strong>Overall Score — Out of 10</strong>
+      Strong product. Critically weak machine-readable signals.<br>
+      Significant untapped visibility potential across SEO, GEO, and AEO.
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+<h1>vaadi.life — Full SEO / GEO / AEO Audit Report</h1>
+<p><strong>Prepared:</strong> July 2026<br />
+<strong>Website:</strong> <a href="https://vaadi.life">https://vaadi.life</a><br />
+<strong>Property:</strong> Vaadi — A Himalayan Homestay Near Auli, Uttarakhand<br />
+<strong>Scope:</strong> Search Engine Optimization (SEO) · Generative Engine Optimization (GEO) · Answer Engine Optimization (AEO)</p>
+<hr />
+<h2>Executive Summary</h2>
+<p>Vaadi is a beautifully designed, boutique Himalayan homestay website with strong brand voice and excellent visual storytelling. The site performs well on the fundamentals that matter to human visitors: it is clear, atmospheric, and emotionally resonant. However, from an algorithmic and AI-discovery perspective, significant gaps exist.</p>
+<p>The site has <strong>no sitemap, no robots.txt, no structured data (schema), and no FAQ content</strong>. It lacks a Google Business Profile citation, misses core on-page metadata on several pages, and provides no programmatic signals that would allow search engines or AI systems to accurately categorise, surface, or cite it in generative responses. It is, effectively, invisible to the machine layer of modern search.</p>
+<p>The good news: the content and product quality are exceptional. Fixing the technical and structural layers will create a compounding advantage over competitors who have weaker products but stronger SEO.</p>
+<p><strong>Overall Scores (out of 10):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Score</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Technical SEO</td>
+<td>3.5 / 10</td>
+<td>Critical gaps</td>
+</tr>
+<tr>
+<td>On-Page SEO</td>
+<td>5.5 / 10</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>Content SEO</td>
+<td>7.0 / 10</td>
+<td>Good foundation</td>
+</tr>
+<tr>
+<td>Off-Page / Authority</td>
+<td>4.5 / 10</td>
+<td>Developing</td>
+</tr>
+<tr>
+<td>GEO (Generative Engine Optimization)</td>
+<td>2.5 / 10</td>
+<td>Largely invisible</td>
+</tr>
+<tr>
+<td>AEO (Answer Engine Optimization)</td>
+<td>2.0 / 10</td>
+<td>Not implemented</td>
+</tr>
+<tr>
+<td><strong>Overall</strong></td>
+<td><strong>4.2 / 10</strong></td>
+<td>Needs work</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>1. Technical SEO</h2>
+<h3>1.1 Crawlability &amp; Indexation</h3>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Status</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>robots.txt</code></td>
+<td>❌ Missing</td>
+<td>Returns HTTP 404. Without this file, crawlers cannot receive instructions. While the absence does not block indexing, it is a basic signal of technical hygiene.</td>
+</tr>
+<tr>
+<td><code>sitemap.xml</code></td>
+<td>❌ Missing</td>
+<td>Returns HTTP 404. Without a sitemap, search engines must discover pages purely through internal links. Any page without an inbound internal link will likely never be indexed.</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>✅ Present</td>
+<td>The site serves over HTTPS correctly.</td>
+</tr>
+<tr>
+<td>Page count (discovered)</td>
+<td>⚠️ Low</td>
+<td>Only the homepage (<code>/</code>), <code>/about</code>, and <code>/experiences</code> are publicly accessible. <code>/rooms</code>, <code>/kitchen</code>, and other referenced pages return 404. This means a significant portion of the product (individual rooms, kitchen/food page) are not indexable.</td>
+</tr>
+<tr>
+<td>Internal linking</td>
+<td>⚠️ Partial</td>
+<td>The homepage links to "Our Rooms", "Forest View", "Sky View", "Plan your stay", "See our kitchen", "See more on Instagram". Several of these lead to 404 pages.</td>
+</tr>
+<tr>
+<td>Canonical tags</td>
+<td>❓ Unknown</td>
+<td>Not assessable without HTML source access, but the absence of a sitemap and multiple 404s suggests canonicalization may not be implemented.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Priority Actions:</strong><br />
+1. Create <code>/robots.txt</code> (allow all crawlers, point to sitemap).<br />
+2. Create <code>/sitemap.xml</code> listing all live pages.<br />
+3. Fix all 404 pages (<code>/rooms</code>, <code>/kitchen</code>, <code>/forest-view</code>, <code>/sky-view</code>) or remove their internal links.</p>
+<hr />
+<h3>1.2 Meta Tags &amp; Title Tags</h3>
+<p><strong>Homepage (<code>/</code>)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Current Value</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;title&gt;</code></td>
+<td><code>Vaadi — A Himalayan Homestay Near Auli</code></td>
+<td>✅ Good — clear, keyword-rich, branded. Optimal length (~50 chars).</td>
+</tr>
+<tr>
+<td><code>&lt;meta description&gt;</code></td>
+<td>Not visible from rendered content</td>
+<td>⚠️ Likely absent or not optimised. No description was surfaced in search results beyond the raw page content.</td>
+</tr>
+<tr>
+<td><code>&lt;meta og:title&gt;</code></td>
+<td>Unknown</td>
+<td>❓ Cannot confirm without source</td>
+</tr>
+<tr>
+<td><code>&lt;meta og:description&gt;</code></td>
+<td>Unknown</td>
+<td>❓ Cannot confirm without source</td>
+</tr>
+<tr>
+<td><code>&lt;meta og:image&gt;</code></td>
+<td>Unknown</td>
+<td>❓ Cannot confirm without source — critical for social sharing</td>
+</tr>
+<tr>
+<td><code>&lt;meta twitter:card&gt;</code></td>
+<td>Unknown</td>
+<td>❓ Cannot confirm without source</td>
+</tr>
+</tbody>
+</table>
+<p><strong>About page (<code>/about</code>)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Current Value</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;title&gt;</code></td>
+<td><code>About — Vaadi \| Vaadi</code></td>
+<td>⚠️ Redundant brand repetition ("Vaadi | Vaadi"). Should include a keyword ("About Vaadi — Himalayan Homestay Near Auli, Uttarakhand").</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Experiences page (<code>/experiences</code>)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Current Value</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;title&gt;</code></td>
+<td><code>Treks &amp; Experiences Near Auli \| Vaadi</code></td>
+<td>✅ Good — keyword-rich, concise.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Priority Actions:</strong><br />
+1. Write unique, keyword-rich meta descriptions for every page (150–160 characters).<br />
+2. Add Open Graph and Twitter Card meta tags sitewide for social sharing.<br />
+3. Fix the "About — Vaadi | Vaadi" title to something like "About Vaadi — Hand-Built Himalayan Homestay Near Auli".</p>
+<hr />
+<h3>1.3 Heading Structure</h3>
+<p><strong>Homepage</strong></p>
+<pre><code>H1: A place to slow down
+H2: A home built by hand in a pine forest at 8,000 feet.
+H3: Forest View
+H3: Sky View
+H2: Book the entire villa
+H2: Things to do around Vaadi
+H3: Into the High Valleys
+H3: Bonfire &amp; Stars
+H3: Forest Walks
+H2: Life at Vaadi
+H2: Meals cooked with what the mountains give
+H2: Just say hello
+H2: Check availability
+</code></pre>
+<p><strong>Assessment:</strong><br />
+- ❌ <strong>Critical:</strong> The H1 "A place to slow down" is a tagline, not a keyword-bearing heading. The H1 should be the primary semantic signal to search engines about what this page is. It should contain the core keyword phrase (e.g., "Himalayan Homestay Near Auli, Uttarakhand").<br />
+- ⚠️ The descriptive line "A home built by hand in a pine forest at 8,000 feet" contains strong keywords but is formatted as an H2 (or styled paragraph), making it semantically subordinate.<br />
+- ✅ The heading hierarchy is otherwise logical and consistent.</p>
+<p><strong>Priority Actions:</strong><br />
+1. Change the H1 to something like: "Vaadi — A Himalayan Homestay Near Auli" (matching or complementing the title tag).<br />
+2. Alternatively, retain the poetic H1 but add hidden or structured keyword content in schema markup.</p>
+<hr />
+<h3>1.4 Structured Data / Schema Markup</h3>
+<p><strong>Status: ❌ None detected</strong></p>
+<p>This is the single most critical technical gap on the site.</p>
+<p>Vaadi has <strong>zero schema markup</strong>. For an accommodation website in 2026, this means:</p>
+<ul>
+<li>No eligibility for rich result displays in Google (star ratings, price, check-in information in SERPs).</li>
+<li>No structured entity recognition by Google's Knowledge Graph.</li>
+<li>No machine-readable signals for AI search systems (ChatGPT, Perplexity, Google AI Overviews, Gemini) to accurately describe or recommend the property.</li>
+<li>No structured NAP (Name, Address, Phone) data that AI citation systems can verify.</li>
+</ul>
+<p><strong>What should be implemented:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Schema Type</th>
+<th>Priority</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LodgingBusiness</code> (or <code>BedAndBreakfast</code>)</td>
+<td>🔴 Critical</td>
+<td>Core property identity: name, address, geo, telephone, priceRange, checkIn/checkOut times, amenityFeature.</td>
+</tr>
+<tr>
+<td><code>AggregateRating</code></td>
+<td>🔴 Critical</td>
+<td>Vaadi has a 5.0 rating on Airbnb and 4.8/5 from 22 reviews. This should be marked up to display stars in SERPs and signal quality to AI systems.</td>
+</tr>
+<tr>
+<td><code>FAQPage</code></td>
+<td>🔴 Critical</td>
+<td>Highest direct impact on AI citation rates. Answers guest questions structurally.</td>
+</tr>
+<tr>
+<td><code>HotelRoom</code> (for Forest View &amp; Sky View)</td>
+<td>🟡 High</td>
+<td>Allows room-level markup with occupancy, view type, price range.</td>
+</tr>
+<tr>
+<td><code>BreadcrumbList</code></td>
+<td>🟡 High</td>
+<td>Clarifies site structure for crawlers.</td>
+</tr>
+<tr>
+<td><code>Organization</code></td>
+<td>🟡 High</td>
+<td>Brand entity foundation with sameAs links to Instagram, Airbnb listing.</td>
+</tr>
+<tr>
+<td><code>Event</code> (for seasonal treks)</td>
+<td>🟢 Medium</td>
+<td>Marks up recurring trek experiences with dates and availability.</td>
+</tr>
+<tr>
+<td><code>Restaurant</code> or <code>FoodEstablishment</code></td>
+<td>🟢 Medium</td>
+<td>Marks up the food/kitchen offering.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample LodgingBusiness schema (to implement):</strong></p>
+<pre><code class="language-json">{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: &quot;BedAndBreakfast&quot;,
+  &quot;@id&quot;: &quot;https://vaadi.life/#property&quot;,
+  &quot;name&quot;: &quot;Vaadi&quot;,
+  &quot;description&quot;: &quot;A hand-built Himalayan homestay at 2,400m in a pine forest near Auli, Uttarakhand. Two private rooms, home-cooked Garhwali meals, and mountain views.&quot;,
+  &quot;url&quot;: &quot;https://vaadi.life&quot;,
+  &quot;telephone&quot;: &quot;+918862806630&quot;,
+  &quot;email&quot;: &quot;hello@vaadi.life&quot;,
+  &quot;address&quot;: {
+    &quot;@type&quot;: &quot;PostalAddress&quot;,
+    &quot;streetAddress&quot;: &quot;Sondhari, Badagaon&quot;,
+    &quot;addressLocality&quot;: &quot;Joshimath&quot;,
+    &quot;addressRegion&quot;: &quot;Uttarakhand&quot;,
+    &quot;postalCode&quot;: &quot;246443&quot;,
+    &quot;addressCountry&quot;: &quot;IN&quot;
+  },
+  &quot;geo&quot;: {
+    &quot;@type&quot;: &quot;GeoCoordinates&quot;,
+    &quot;latitude&quot;: 30.5142,
+    &quot;longitude&quot;: 79.5998
+  },
+  &quot;numberOfRooms&quot;: 2,
+  &quot;checkinTime&quot;: &quot;14:00&quot;,
+  &quot;checkoutTime&quot;: &quot;11:00&quot;,
+  &quot;priceRange&quot;: &quot;₹₹₹&quot;,
+  &quot;amenityFeature&quot;: [
+    {&quot;@type&quot;: &quot;LocationFeatureSpecification&quot;, &quot;name&quot;: &quot;Mountain View&quot;, &quot;value&quot;: true},
+    {&quot;@type&quot;: &quot;LocationFeatureSpecification&quot;, &quot;name&quot;: &quot;Bonfire&quot;, &quot;value&quot;: true},
+    {&quot;@type&quot;: &quot;LocationFeatureSpecification&quot;, &quot;name&quot;: &quot;Home-cooked meals&quot;, &quot;value&quot;: true},
+    {&quot;@type&quot;: &quot;LocationFeatureSpecification&quot;, &quot;name&quot;: &quot;Private garden&quot;, &quot;value&quot;: true},
+    {&quot;@type&quot;: &quot;LocationFeatureSpecification&quot;, &quot;name&quot;: &quot;Free parking&quot;, &quot;value&quot;: true},
+    {&quot;@type&quot;: &quot;LocationFeatureSpecification&quot;, &quot;name&quot;: &quot;Free Wi-Fi&quot;, &quot;value&quot;: true}
+  ],
+  &quot;aggregateRating&quot;: {
+    &quot;@type&quot;: &quot;AggregateRating&quot;,
+    &quot;ratingValue&quot;: &quot;4.8&quot;,
+    &quot;reviewCount&quot;: &quot;22&quot;,
+    &quot;bestRating&quot;: &quot;5&quot;
+  },
+  &quot;image&quot;: [
+    &quot;https://vaadi.life/images/forest-view.jpg&quot;,
+    &quot;https://vaadi.life/images/sky-view.jpg&quot;
+  ],
+  &quot;sameAs&quot;: [
+    &quot;https://www.instagram.com/vaadi.life&quot;,
+    &quot;https://www.airbnb.com/rooms/[LISTING_ID]&quot;
+  ]
+}
+</code></pre>
+<hr />
+<h3>1.5 Page Speed &amp; Core Web Vitals</h3>
+<p><strong>Status: ❓ Not directly measurable without tooling, but risk factors identified</strong></p>
+<ul>
+<li>The homepage features a looping media section ("Life at Vaadi") with what appears to be a large gallery/video reel of 12+ items cycling on loop. This is a significant risk for:</li>
+<li><strong>Largest Contentful Paint (LCP):</strong> If the hero image or first media item is not optimised or lazy-loaded correctly, LCP will likely fail.</li>
+<li><strong>Cumulative Layout Shift (CLS):</strong> Carousels and looping media are known CLS triggers if images don't have defined dimensions.</li>
+<li><strong>Total Blocking Time:</strong> Heavy JavaScript for the calendar widget and media carousel may block the main thread.</li>
+</ul>
+<p><strong>Priority Actions:</strong><br />
+1. Run the site through <a href="https://pagespeed.web.dev/">PageSpeed Insights</a> and [Google Search Console Core Web Vitals report].<br />
+2. Ensure hero images are preloaded (<code>&lt;link rel="preload"&gt;</code>).<br />
+3. Lazy-load the looping media gallery.<br />
+4. Verify all images have explicit <code>width</code> and <code>height</code> attributes.</p>
+<hr />
+<h3>1.6 Mobile Friendliness</h3>
+<p><strong>Status: ✅ Likely good</strong></p>
+<p>The site's design language (minimal, editorial, large typography) is consistent with a mobile-first approach. However, without direct inspection of the viewport meta tag and touch targets, this cannot be fully confirmed.</p>
+<hr />
+<h2>2. On-Page SEO</h2>
+<h3>2.1 Keyword Targeting Analysis</h3>
+<p><strong>Primary target keywords (current implicit focus):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Volume Tier</th>
+<th>Competition</th>
+<th>Vaadi's Current Positioning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>homestay near Auli</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Indirect — site title references Auli</td>
+</tr>
+<tr>
+<td>Himalayan homestay Uttarakhand</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Present in H2 on homepage</td>
+</tr>
+<tr>
+<td>cabin near Auli Joshimath</td>
+<td>Low-Medium</td>
+<td>Low</td>
+<td>Referenced on 3rd-party sites</td>
+</tr>
+<tr>
+<td>Joshimath accommodation</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Not explicitly targeted</td>
+</tr>
+<tr>
+<td>Gorson Bugyal trek stay</td>
+<td>Low</td>
+<td>Low</td>
+<td>Referenced on experiences page</td>
+</tr>
+<tr>
+<td>Kuari Pass trek accommodation</td>
+<td>Low</td>
+<td>Low</td>
+<td>Referenced on experiences page</td>
+</tr>
+<tr>
+<td>Nanda Devi view homestay</td>
+<td>Very Low</td>
+<td>Very Low</td>
+<td>Referenced in reviews, not in headings</td>
+</tr>
+<tr>
+<td>pine forest retreat Uttarakhand</td>
+<td>Very Low</td>
+<td>Very Low</td>
+<td>Referenced in copy, not headings</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Assessment:</strong><br />
+- The site naturally uses many long-tail keywords in its copy, but they are embedded in prose rather than signalled through headings, titles, or structured data.<br />
+- There are no dedicated landing pages for high-intent queries like "Gorson Bugyal trek base camp accommodation" or "Kuari Pass trek stay", which are specific enough to win featured positions with very little effort.<br />
+- The term "Joshimath" is not present in any heading on the homepage despite being the actual nearest town and a high-intent search term.</p>
+<hr />
+<h3>2.2 Content Gap Analysis</h3>
+<p><strong>Missing content that would materially improve search visibility:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Missing Page / Section</th>
+<th>Target Query</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Room detail pages (Forest View, Sky View) with price, photos, amenities</td>
+<td>"Forest view cabin near Auli"</td>
+<td>🔴 Critical</td>
+</tr>
+<tr>
+<td>A dedicated <code>/kitchen</code> or <code>/food</code> page</td>
+<td>"home-cooked Garhwali food homestay"</td>
+<td>🟡 High</td>
+</tr>
+<tr>
+<td>A dedicated <code>/how-to-reach</code> page</td>
+<td>"how to reach Vaadi Joshimath"</td>
+<td>🟡 High</td>
+</tr>
+<tr>
+<td>Blog/journal posts (e.g., "Best time to visit Auli")</td>
+<td>Informational travel queries</td>
+<td>🟡 High</td>
+</tr>
+<tr>
+<td>Season-specific landing pages</td>
+<td>"Auli homestay winter", "Auli homestay spring"</td>
+<td>🟢 Medium</td>
+</tr>
+<tr>
+<td>Trek guide pages (Gorson Bugyal, Kuari Pass)</td>
+<td>Trek-specific long-tail queries</td>
+<td>🟢 Medium</td>
+</tr>
+<tr>
+<td>FAQ page</td>
+<td>Direct Q&amp;A queries</td>
+<td>🔴 Critical (also AEO)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>2.3 Image Alt Text</h3>
+<p><strong>Status: ❓ Unknown from rendered content</strong></p>
+<p>The site is image-heavy (gallery section, room photos, experience images). Without source code access, it's not possible to confirm whether <code>alt</code> attributes are present. Given the site's design-forward nature and the typical patterns of boutique property sites built on visual frameworks, there is a moderate-to-high probability that many images lack descriptive <code>alt</code> text.</p>
+<p><strong>Priority Actions:</strong><br />
+1. Audit all images for <code>alt</code> attributes.<br />
+2. Write descriptive alt text for every image: e.g., <code>alt="Forest View room at Vaadi homestay, ground floor with pine forest views near Auli, Uttarakhand"</code>.<br />
+3. Use keyword-rich but natural language — do not stuff keywords.</p>
+<hr />
+<h2>3. Content SEO</h2>
+<h3>3.1 Content Quality Assessment</h3>
+<p><strong>Verdict: High quality, strong brand voice, excellent specificity</strong></p>
+<p>The copy at vaadi.life is genuinely excellent by content standards. It is:</p>
+<ul>
+<li><strong>Specific:</strong> Altitude (2,400m / 7,500ft / 8,000ft), coordinates (30.5142° N, 79.5998° E), distances ("7–8 hours by road from Rishikesh"), trek durations and difficulty levels — all are precise and trustworthy.</li>
+<li><strong>Atmospheric:</strong> The writing ("The only schedule is the light on the peaks", "The kind of quiet where you hear your own breathing") creates a strong sense of place.</li>
+<li><strong>Differentiated:</strong> The emphasis on hand-built construction, Garhwali recipes, and local sourcing creates a distinct identity.</li>
+<li><strong>Review-enriched:</strong> 22 reviews featuring specific experiences (Nanda Devi views, floor-to-ceiling glass walls, host names) provide strong social proof.</li>
+</ul>
+<p><strong>Weaknesses:</strong><br />
+- ⚠️ The altitude is cited inconsistently: "8,000 feet" on the homepage, "7,500 feet" and "2,400m" on the About page. These should be reconciled (2,400m ≈ 7,874 ft — closer to the 8,000 ft figure, though likely an approximation).<br />
+- ⚠️ Host names (Amar, Jyoti, Gokul) appear only in guest reviews, not in the About page or structured content. This is a missed opportunity for E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) signalling.<br />
+- ⚠️ Pricing is completely absent from the website. While deliberate, this creates a friction point for users arriving with intent to book and signals opacity to search engines that expect price data.</p>
+<hr />
+<h3>3.2 E-E-A-T Signals</h3>
+<p>Google's quality evaluator guidelines increasingly weight E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness):</p>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Status</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Experience</strong></td>
+<td>✅ Strong</td>
+<td>First-person voice, specific experiential detail, verified guest reviews</td>
+</tr>
+<tr>
+<td><strong>Expertise</strong></td>
+<td>⚠️ Partial</td>
+<td>Trek info and local knowledge is present but not attributed to named individuals</td>
+</tr>
+<tr>
+<td><strong>Authoritativeness</strong></td>
+<td>❌ Weak</td>
+<td>No backlinks from travel publications, no press coverage visible, no Wikipedia or Wikidata entity</td>
+</tr>
+<tr>
+<td><strong>Trustworthiness</strong></td>
+<td>⚠️ Partial</td>
+<td>Contact info present, Airbnb badge, but no privacy policy, terms, or booking transparency</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Priority Actions:</strong><br />
+1. Add an "About the Hosts" section naming and describing Amar, Jyoti, and Gokul — this improves E-E-A-T and humanises the brand.<br />
+2. Add a Privacy Policy page (also legally required under Indian IT Act if collecting contact data).<br />
+3. Actively seek coverage from travel blogs and publications (see Off-Page section).</p>
+<hr />
+<h2>4. Off-Page SEO &amp; Authority</h2>
+<h3>4.1 Backlink Profile</h3>
+<p><strong>Status: ⚠️ Thin but emerging</strong></p>
+<p>External mentions of Vaadi found:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Airbnb listing (vaadi.life-linked or property)</td>
+<td>OTA listing</td>
+<td>High — Airbnb is a high-DA domain</td>
+</tr>
+<tr>
+<td>Booking.com (via sun-ski.com)</td>
+<td>OTA aggregator</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>westpalmbeachresort.in</td>
+<td>Low-quality aggregator</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>sun-ski.com</td>
+<td>OTA aggregator</td>
+<td>Low-Medium</td>
+</tr>
+<tr>
+<td>himalayashomestays.com</td>
+<td>Niche directory</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key findings:</strong><br />
+- No travel magazine, travel blog, or editorial link to vaadi.life has been found.<br />
+- The site does not appear to have been featured in any major Indian travel publication (Times Travel, Condé Nast Traveller India, Outlook Traveller, etc.).<br />
+- The Instagram handle @vaadi.life is referenced but the Instagram profile's bio link (if it points to vaadi.life) would be a nofollow link — still valuable for traffic but not for PageRank.</p>
+<p><strong>Priority Actions:</strong><br />
+1. Reach out to travel journalists and bloggers covering Uttarakhand, Auli, and boutique mountain stays in India.<br />
+2. Submit to quality travel directories: Condé Nast Traveller India, Outlook Traveller, NotOnMap, Rare India.<br />
+3. Ensure the Airbnb listing bio links to vaadi.life.<br />
+4. Create a Google Business Profile for Vaadi (see GEO section).</p>
+<hr />
+<h3>4.2 Google Business Profile</h3>
+<p><strong>Status: ❌ Not confirmed / Likely absent</strong></p>
+<p>A Google Business Profile (GBP) is the single highest-ROI local SEO action for a physical property. Without it:</p>
+<ul>
+<li>The property does not appear in Google Maps results for "homestay near Auli" or similar searches.</li>
+<li>There is no local knowledge panel in Google Search.</li>
+<li>Google AI Overviews and local pack results cannot cite the property with confidence.</li>
+</ul>
+<p><strong>Priority Actions:</strong><br />
+1. Create and fully verify a Google Business Profile at <a href="https://business.google.com">business.google.com</a>.<br />
+2. Complete all fields: category (Bed and Breakfast, Homestay), address, phone, website, photos (20+), hours.<br />
+3. Respond to all reviews to improve engagement signals.<br />
+4. Ensure NAP (Name, Address, Phone) is identical across GBP, schema markup, and the website.</p>
+<hr />
+<h2>5. GEO — Generative Engine Optimization</h2>
+<p><em>GEO is the practice of making content discoverable and citable by AI-driven search systems including Google AI Overviews, Perplexity, ChatGPT Search, Gemini, Bing Copilot, and Claude.ai.</em></p>
+<h3>5.1 Current GEO Standing</h3>
+<p><strong>Score: 2.5 / 10 — Largely invisible to generative engines</strong></p>
+<p>When AI systems generate answers about "best homestays near Auli" or "where to stay for Gorson Bugyal trek", they draw on:<br />
+1. Structured data (schema markup) — ❌ Absent<br />
+2. Authoritative mentions in crawled third-party sources — ⚠️ Very limited<br />
+3. FAQs and Q&amp;A content — ❌ Absent<br />
+4. Google Knowledge Graph entity — ❓ Unconfirmed, likely absent<br />
+5. Clear, factually dense, citable prose — ✅ Present on the website</p>
+<p><strong>What AI systems currently "know" about Vaadi:</strong><br />
+- The Airbnb listing description ("a hand-built mountain home at 2,400m") is the most likely source for AI citation.<br />
+- The website's own content is likely indexed but cannot be efficiently cited due to the absence of structured data and a lack of authoritative inbound links.</p>
+<hr />
+<h3>5.2 GEO Recommendations</h3>
+<p><strong>A. Entity establishment</strong></p>
+<p>AI systems operate on entity graphs. For Vaadi to be reliably cited, it needs to be established as a distinct entity:</p>
+<ol>
+<li><strong>Google Business Profile</strong> — the most direct path to entity recognition by Google's systems.</li>
+<li><strong>Wikidata entry</strong> — a Wikidata record for Vaadi with GEO coordinates, property type, location, and external links creates a machine-readable entity record that AI systems (including Wikipedia-trained models) can cite.</li>
+<li><strong>Consistent NAP everywhere</strong> — the property name, address, and phone number must be identical on the website, GBP, Airbnb, Booking.com, and any directory.</li>
+</ol>
+<p><strong>B. Content for AI grounding</strong></p>
+<p>AI systems cite content that is:<br />
+- <strong>Factually specific</strong> — Vaadi already does this well (coordinates, altitudes, distances).<br />
+- <strong>Authoritatively sourced</strong> — needs improvement (press coverage, expert attribution).<br />
+- <strong>Structured</strong> — needs significant improvement (schema, FAQ, structured headings).<br />
+- <strong>Frequently mentioned</strong> — needs improvement (more citations from third-party sites).</p>
+<p><strong>C. Suggested AI-citable content additions</strong></p>
+<p>The following factual statements, if placed prominently on the website and in schema, will increase AI citation frequency:</p>
+<pre><code>- Vaadi is a boutique homestay at 2,400m (7,874 ft) near Auli, Joshimath, Uttarakhand, India.
+- GPS coordinates: 30.5142° N, 79.5998° E.
+- It comprises two private rooms: Forest View (ground floor, pine forest views) and Sky View (first floor, panoramic Himalayan range views).
+- Maximum occupancy: 4 guests.
+- The property is 20 minutes by car from Joshimath.
+- From Delhi: 10–11 hours by road via NH58 or Rishikesh.
+- The property hosts Gorson Bugyal day treks (3,056m) and Kuari Pass multi-day treks (3,650m).
+- Meals are home-cooked Garhwali cuisine — no menu cards, no buffets.
+- It is rated 5.0 stars on Airbnb and is a Guest Favourite (Top 10% of homes).
+- The property was built using traditional Garhwali construction methods with locally sourced stone and timber.
+- Contact: +91 88628 06630 / hello@vaadi.life.
+</code></pre>
+<p>These facts should appear in:<br />
+- The schema <code>description</code> field.<br />
+- The About page as a clearly structured "At a Glance" section.<br />
+- An FAQ page.</p>
+<p><strong>D. Third-party citation strategy</strong></p>
+<p>To increase AI training signal strength:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Platform</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get featured in Outlook Traveller, Condé Nast India</td>
+<td>Editorial</td>
+<td>Very High</td>
+</tr>
+<tr>
+<td>Get listed on NotOnMap.com</td>
+<td>Niche directory</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Get listed on Rare India or Similar Retreats</td>
+<td>Curated directory</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Publish guest stories (with permission) on the website</td>
+<td>Owned content</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Respond to travel writer queries on Help A Reporter Out (HARO)</td>
+<td>Earned media</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>Feature in a travel YouTube video (linked description)</td>
+<td>Video</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>6. AEO — Answer Engine Optimization</h2>
+<p><em>AEO is the practice of structuring content so that search engines (and AI systems) can extract and display direct answers to user questions — in featured snippets, People Also Ask boxes, voice results, and AI-generated answers.</em></p>
+<h3>6.1 Current AEO Standing</h3>
+<p><strong>Score: 2.0 / 10 — Not implemented</strong></p>
+<p>There is no FAQ page, no Q&amp;A structured content, no <code>FAQPage</code> schema, and no "How to reach" content structured as answers to questions.</p>
+<p>The experiences page and about page contain much of the information users ask about, but it is buried in prose rather than formatted as direct question-answer pairs.</p>
+<hr />
+<h3>6.2 High-Value Questions to Target</h3>
+<p>The following are questions that travellers actively search and which vaadi.life is uniquely positioned to answer authoritatively:</p>
+<p><strong>Logistics &amp; Planning:</strong><br />
+- "How do I get to Vaadi homestay from Delhi?"<br />
+- "How far is Vaadi from Joshimath?"<br />
+- "What is the nearest airport to Vaadi Auli?"<br />
+- "How to reach Auli from Rishikesh?"<br />
+- "Is Vaadi accessible in winter?"</p>
+<p><strong>Property:</strong><br />
+- "How many rooms does Vaadi have?"<br />
+- "What is the altitude of Vaadi homestay?"<br />
+- "Can I book Vaadi for a group?"<br />
+- "Does Vaadi serve food / include meals?"<br />
+- "What are the check-in and check-out times at Vaadi?"<br />
+- "Is Vaadi pet-friendly?"</p>
+<p><strong>Experiences:</strong><br />
+- "What treks can I do from Vaadi?"<br />
+- "What is the best season to stay at Vaadi?"<br />
+- "Is Gorson Bugyal trek accessible from Vaadi?"<br />
+- "How difficult is the Kuari Pass trek from Vaadi?"</p>
+<p><strong>Local Area:</strong><br />
+- "What is there to do near Auli in summer?"<br />
+- "Where is Nanda Devi visible from?"<br />
+- "Is Auli good to visit in monsoon?"</p>
+<hr />
+<h3>6.3 AEO Implementation Plan</h3>
+<p><strong>Step 1: Create a dedicated FAQ page (<code>/faq</code>)</strong></p>
+<p>Structure answers as concise, direct paragraphs (40–60 words each) that directly begin with the answer — not preamble. Implement <code>FAQPage</code> schema on this page.</p>
+<p><strong>Example FAQ structure (for schema and page):</strong></p>
+<pre><code>Q: How do I get to Vaadi from Delhi?
+A: Vaadi is 10–11 hours from Delhi by road via the Rishikesh–Joshimath highway (NH58). 
+   Alternatively, fly to Jolly Grant Airport in Dehradun, then drive approximately 8 hours. 
+   Vaadi is approximately 20 minutes by car from Joshimath town.
+
+Q: What is the altitude of Vaadi?
+A: Vaadi sits at approximately 2,400 metres (7,874 feet) above sea level, in a pine and 
+   rhododendron forest in the Chamoli district of Uttarakhand.
+
+Q: How many guests can Vaadi accommodate?
+A: Vaadi has two rooms — Forest View and Sky View — each suitable for 2 guests, 
+   for a maximum total of 4 guests. The entire property can be booked for private stays.
+
+Q: What treks can I do from Vaadi?
+A: Three treks depart from or near Vaadi: Gorson Bugyal (1 day, 3,056m), 
+   Kuari Pass (4–5 days, 3,650m), and Chitrakantha Peak (1–2 days, 3,900m). 
+   Guides, permits, and provisions are arranged by the hosts.
+
+Q: Does Vaadi serve meals?
+A: Yes. All meals at Vaadi are home-cooked using traditional Garhwali recipes 
+   with ingredients sourced from local valleys. Meals are served family-style — 
+   no menu cards or buffets.
+</code></pre>
+<p><strong>Step 2: Structure the How to Reach content for featured snippets</strong></p>
+<p>The About page already has excellent travel directions. Restructure it so the directions begin with the answer, use clear sub-headings ("From Delhi", "From Rishikesh"), and match common voice-search phrasing.</p>
+<p><strong>Step 3: Structured "At a Glance" table</strong></p>
+<p>On the homepage or About page, add a scannable table or bullet list with key facts:</p>
+<pre><code>| Feature | Detail |
+|---|---|
+| Location | Near Auli, Joshimath, Chamoli, Uttarakhand |
+| Altitude | 2,400m (7,874 ft) |
+| Rooms | 2 (Forest View + Sky View) |
+| Max guests | 4 |
+| From Delhi | 10–11 hours by road |
+| From Rishikesh | 7–8 hours by road |
+| Rating | 5.0 ★ on Airbnb (Guest Favourite) |
+| Meals | Home-cooked Garhwali food included |
+| Treks | Gorson Bugyal, Kuari Pass, Chitrakantha Peak |
+| Contact | +91 88628 06630 / hello@vaadi.life |
+</code></pre>
+<p>This format is directly extractable by search engines for featured snippets and AI answers.</p>
+<hr />
+<h2>7. Social &amp; Referral SEO</h2>
+<h3>7.1 Instagram (@vaadi.life)</h3>
+<p>The site prominently promotes its Instagram presence. This is a strong awareness channel but has limited direct SEO value (Instagram links are nofollow). It becomes SEO-relevant when:<br />
+- Instagram content drives people to search branded terms ("vaadi life homestay").<br />
+- Instagram posts are cited in travel articles that link to the website.<br />
+- The Instagram bio links to vaadi.life (critical — ensure this is set).</p>
+<p><strong>Current Instagram status:</strong> Active (recent posts from May–July 2026 visible in the homepage gallery with dates and captions).</p>
+<hr />
+<h3>7.2 Airbnb Listing</h3>
+<p>Vaadi's Airbnb presence is its strongest external citation signal:<br />
+- 5.0 stars, Guest Favourite badge, Top 10% of homes.<br />
+- The Airbnb listing description contains high-quality, quotable content about the property.<br />
+- Airbnb pages rank well independently and can serve as an intermediary pathway to vaadi.life.</p>
+<p><strong>Action:</strong> Ensure the Airbnb listing's "Other things to note" or host profile section references the website URL (vaadi.life) for those who wish to book direct.</p>
+<hr />
+<h2>8. Prioritised Action Plan</h2>
+<h3>Tier 1 — Critical (Do immediately, highest impact)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Action</th>
+<th>Effort</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Create and verify a <strong>Google Business Profile</strong></td>
+<td>Low</td>
+<td>Very High</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Add <strong>LodgingBusiness schema</strong> with all required properties</td>
+<td>Medium</td>
+<td>Very High</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Add <strong>AggregateRating schema</strong> (pull from Airbnb reviews)</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Create <code>/robots.txt</code> and <code>/sitemap.xml</code></td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Create a <strong>dedicated FAQ page</strong> with FAQPage schema</td>
+<td>Medium</td>
+<td>Very High</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Fix all <strong>404 internal pages</strong> (rooms, kitchen)</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Write <strong>meta descriptions</strong> for all pages</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<h3>Tier 2 — High Priority (Within 30–60 days)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Action</th>
+<th>Effort</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>Fix the <strong>H1 on homepage</strong> to be keyword-bearing</td>
+<td>Very Low</td>
+<td>Medium-High</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Add <strong>Open Graph and Twitter Card</strong> meta tags</td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Add an <strong>"About the Hosts"</strong> section naming Amar &amp; Jyoti</td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Reconcile <strong>altitude inconsistency</strong> (7,500 ft vs 8,000 ft)</td>
+<td>Very Low</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Add a <strong>Privacy Policy</strong> page</td>
+<td>Low</td>
+<td>Medium (trust)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Add <strong>image alt text</strong> across all photos</td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Create individual <strong>room detail pages</strong> with pricing</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Pursue editorial coverage in Outlook Traveller / CNT India</td>
+<td>High</td>
+<td>Very High</td>
+</tr>
+</tbody>
+</table>
+<h3>Tier 3 — Medium Priority (60–120 days)</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Action</th>
+<th>Effort</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td>Publish a <strong>kitchen/food page</strong></td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Publish <strong>trek guide pages</strong> (Gorson Bugyal, Kuari Pass)</td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Publish <strong>season guide content</strong></td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Create a <strong>Wikidata entity</strong> for Vaadi</td>
+<td>Low</td>
+<td>Medium (GEO)</td>
+</tr>
+<tr>
+<td>20</td>
+<td>List on <strong>NotOnMap, Rare India</strong> and similar directories</td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Run <strong>PageSpeed Insights</strong> and fix Core Web Vitals</td>
+<td>Medium</td>
+<td>Medium-High</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Start a <strong>travel journal / blog</strong> targeting informational queries</td>
+<td>High</td>
+<td>High (long-term)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>9. Competitor Benchmarking Snapshot</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Website</th>
+<th>Schema</th>
+<th>GBP</th>
+<th>FAQ</th>
+<th>Blog</th>
+<th>Review Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vaadi</strong></td>
+<td>vaadi.life</td>
+<td>❌ None</td>
+<td>❓ Not found</td>
+<td>❌ None</td>
+<td>❌ None</td>
+<td>❌ None</td>
+</tr>
+<tr>
+<td>The Auli Meadows</td>
+<td>theaulimeadows.com</td>
+<td>⚠️ Partial</td>
+<td>✅ Present</td>
+<td>✅ Present</td>
+<td>✅ Present</td>
+<td>⚠️ Partial</td>
+</tr>
+<tr>
+<td>Himalaya Homestays (dir.)</td>
+<td>himalayashomestays.com</td>
+<td>✅ Full</td>
+<td>✅ Present</td>
+<td>✅ Present</td>
+<td>✅ Present</td>
+<td>✅ Full</td>
+</tr>
+</tbody>
+</table>
+<p>Vaadi's product is demonstrably superior to most competitors in this category — but it is losing the visibility battle to technically better-optimised properties with inferior experiences.</p>
+<hr />
+<h2>10. Summary Scorecard</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Score</th>
+<th>Key Issues</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Technical SEO</strong></td>
+<td>3.5 / 10</td>
+<td>No sitemap, no robots.txt, no schema, broken internal pages</td>
+</tr>
+<tr>
+<td><strong>On-Page SEO</strong></td>
+<td>5.5 / 10</td>
+<td>Good title tags, weak H1, no meta descriptions, no alt text audit</td>
+</tr>
+<tr>
+<td><strong>Content SEO</strong></td>
+<td>7.0 / 10</td>
+<td>Excellent copy quality, missing room pages, inconsistent altitude</td>
+</tr>
+<tr>
+<td><strong>Off-Page / Authority</strong></td>
+<td>4.5 / 10</td>
+<td>Thin backlink profile, no GBP, no editorial links</td>
+</tr>
+<tr>
+<td><strong>GEO</strong></td>
+<td>2.5 / 10</td>
+<td>No entity establishment, no schema, no AI-citable structure</td>
+</tr>
+<tr>
+<td><strong>AEO</strong></td>
+<td>2.0 / 10</td>
+<td>No FAQ page, no Q&amp;A schema, no featured snippet targeting</td>
+</tr>
+<tr>
+<td><strong>Social Signals</strong></td>
+<td>6.0 / 10</td>
+<td>Strong Instagram presence, active Airbnb listing</td>
+</tr>
+<tr>
+<td><strong>Overall</strong></td>
+<td><strong>4.4 / 10</strong></td>
+<td>Strong product, weak machine-readable signals</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Closing Note</h2>
+<p>Vaadi is an exceptional property with a website that genuinely communicates that. The writing is precise, evocative, and trustworthy — qualities that are increasingly rare and that both humans and AI systems reward. The gap is almost entirely in the machine-readable layer: schema, structured data, FAQ content, and entity establishment.</p>
+<p>The returns from fixing this layer will be disproportionate to the effort involved, precisely because the underlying content quality is already there. A few weeks of technical implementation work could move Vaadi from effectively invisible in AI-assisted search to being the cited reference property for "Himalayan homestay near Auli" across Google AI Overviews, Perplexity, and ChatGPT.</p>
+<hr />
+<p><em>Report compiled from direct website audit of vaadi.life (July 2026). Sources include live fetches of homepage, /about, /experiences, and /robots.txt and /sitemap.xml endpoints, external search results, third-party listing analysis, and 2026 best-practice references for structured data, GEO, and AEO.</em></p>
+</div>
+
+</body>
+</html>
